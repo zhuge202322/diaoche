@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, BadgeCheck } from "lucide-react";
-import ProductCard from "@/components/site/ProductCard";
+import ProductCatalog from "@/components/site/ProductCatalog";
 import Reveal from "@/components/site/Reveal";
 import SiteFrame from "@/components/site/SiteFrame";
 import { aerialWorkPlatformItems } from "@/lib/navigation";
@@ -22,6 +22,10 @@ export const metadata = {
 
 export default async function AerialWorkPlatformsPage() {
   const products = (await loadSiteProducts()).filter((product) => product.category === "aerial-work-platforms");
+  const filterOptions = [
+    { id: "all", label: "All Aerial Platforms" },
+    ...Array.from(new Set(products.map((product) => product.categoryLabel))).map((label) => ({ id: label, label })),
+  ];
 
   return (
     <SiteFrame>
@@ -61,9 +65,12 @@ export default async function AerialWorkPlatformsPage() {
             </div>
             <Link className="pl-btn" href="/contact-us">Request Quote <ArrowRight size={18} /></Link>
           </div>
-          <div className="pl-product-grid">
-            {products.map((product) => <ProductCard key={product.slug} product={product} />)}
-          </div>
+          <ProductCatalog
+            products={products}
+            filterOptions={filterOptions}
+            filterBy="categoryLabel"
+            chipLabel="Aerial platform catalog"
+          />
         </div>
       </section>
     </SiteFrame>

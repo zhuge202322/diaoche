@@ -1043,8 +1043,81 @@ body.pl-lock {
   margin-bottom: 22px;
 }
 
+.pl-catalog-top > div {
+  display: grid;
+  gap: 4px;
+}
+
+.pl-page-range {
+  color: #626b73;
+  font-size: 13px;
+  font-weight: 800;
+}
+
 .pl-catalog-grid {
   grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pl-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.pl-pagination-pages {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.pl-pagination button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0 14px;
+  border: 1px solid var(--pl-line);
+  border-radius: 4px;
+  color: #33383d;
+  background: var(--pl-white);
+  cursor: pointer;
+  font-weight: 900;
+  transition: border-color 160ms ease, background 160ms ease, color 160ms ease, opacity 160ms ease;
+}
+
+.pl-pagination button:hover,
+.pl-pagination button.pl-active {
+  color: var(--pl-white);
+  border-color: var(--pl-red);
+  background: var(--pl-red);
+}
+
+.pl-pagination button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.pl-pagination button:disabled:hover {
+  color: #33383d;
+  border-color: var(--pl-line);
+  background: var(--pl-white);
+}
+
+.pl-empty-state {
+  padding: 30px;
+  border: 1px solid var(--pl-line);
+  border-radius: 8px;
+  background: var(--pl-white);
+}
+
+.pl-empty-state p {
+  margin-bottom: 0;
+  color: #626b73;
 }
 
 .pl-spec-grid {
@@ -1433,6 +1506,20 @@ body.pl-lock {
     display: grid;
   }
 
+  .pl-pagination {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .pl-pagination button {
+    width: 100%;
+  }
+
+  .pl-pagination-pages button {
+    width: auto;
+    flex: 1 0 44px;
+  }
+
   .pl-hero-stats,
   .pl-card-grid,
   .pl-product-grid,
@@ -1476,7 +1563,8 @@ body.pl-lock {
   .pl-marquee-track,
   .pl-slide,
   .pl-dropdown,
-  .pl-mobile-menu {
+  .pl-mobile-menu,
+  .pl-pagination button {
     animation: none;
     transition: none;
   }

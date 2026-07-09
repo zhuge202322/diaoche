@@ -6,7 +6,7 @@ export default function ProductCard({ product }: { product: SiteProduct }) {
   return (
     <article className="pl-product-card">
       <Link className="pl-product-media" href={`/products/${product.slug}`} aria-label={`View ${product.name}`}>
-        <img src={product.image} alt={product.name} />
+        <img src={product.image} alt={product.name} loading="lazy" decoding="async" />
         <span>{product.badge}</span>
       </Link>
       <div className="pl-product-body">
