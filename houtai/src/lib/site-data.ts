@@ -33,22 +33,22 @@ export const siteCategories: SiteCategory[] = [
   {
     id: "all",
     label: "All Equipment",
-    description: "Used cranes, aerial work platforms, accessories and export packages.",
+    description: "Aerial work platforms, cranes, spare parts and available stock.",
   },
   {
-    id: "used-cranes",
-    label: "Used Cranes",
-    description: "Mobile cranes, truck cranes, crawler cranes and compact lifting equipment.",
+    id: "aerial-work-platforms",
+    label: "Aerial Work Platforms",
+    description: "Scissor lifts, boom lifts, spider lifts, truck-mounted platforms and used aerial lifts.",
   },
   {
-    id: "aerial-platforms",
-    label: "Aerial Platforms",
-    description: "Scissor lifts, boom lifts and aerial work platforms for rental and jobsite fleets.",
+    id: "cranes",
+    label: "Cranes",
+    description: "Truck cranes, all-terrain cranes, rough-terrain cranes, crawler cranes and used cranes.",
   },
   {
-    id: "accessories",
-    label: "Accessories",
-    description: "Lifting equipment accessories, hydraulic parts and export spare-parts support.",
+    id: "spare-parts",
+    label: "Spare Parts",
+    description: "Factory-direct spare parts, maintenance kits, hydraulic parts and accessories.",
   },
 ];
 
@@ -56,8 +56,8 @@ export const fallbackProducts: SiteProduct[] = [
   {
     slug: "used-telescopic-truck-crane",
     name: "Used Telescopic Truck Crane",
-    category: "used-cranes",
-    categoryLabel: "Used Cranes",
+    category: "cranes",
+    categoryLabel: "Cranes",
     badge: "Export ready",
     image: "/assets/equipment/telescopic-truck-crane.png",
     short: "Road-ready used truck crane options for construction, logistics and municipal lifting.",
@@ -87,8 +87,8 @@ export const fallbackProducts: SiteProduct[] = [
   {
     slug: "used-knuckle-boom-crane",
     name: "Used Knuckle Boom Crane",
-    category: "used-cranes",
-    categoryLabel: "Used Cranes",
+    category: "cranes",
+    categoryLabel: "Cranes",
     badge: "Compact reach",
     image: "/assets/equipment/knuckle-boom-crane.png",
     short: "Foldable truck-mounted loader crane for materials delivery and roadside handling.",
@@ -118,8 +118,8 @@ export const fallbackProducts: SiteProduct[] = [
   {
     slug: "used-articulating-boom-lift",
     name: "Used Articulating Boom Lift",
-    category: "aerial-platforms",
-    categoryLabel: "Aerial Platforms",
+    category: "aerial-work-platforms",
+    categoryLabel: "Aerial Work Platforms",
     badge: "Up-and-over",
     image: "/assets/equipment/articulating-boom-lift.png",
     short: "Used articulating boom lift for plant maintenance, facade work and rental fleets.",
@@ -149,8 +149,8 @@ export const fallbackProducts: SiteProduct[] = [
   {
     slug: "used-scissor-lift",
     name: "Used Scissor Lift",
-    category: "aerial-platforms",
-    categoryLabel: "Aerial Platforms",
+    category: "aerial-work-platforms",
+    categoryLabel: "Aerial Work Platforms",
     badge: "Large deck",
     image: "/assets/equipment/scissor-lift.png",
     short: "Used scissor lift options for warehouses, installation work and rental fleets.",
@@ -180,8 +180,8 @@ export const fallbackProducts: SiteProduct[] = [
   {
     slug: "used-crawler-crane",
     name: "Used Crawler Crane",
-    category: "used-cranes",
-    categoryLabel: "Used Cranes",
+    category: "cranes",
+    categoryLabel: "Cranes",
     badge: "Stable lifting",
     image: "/assets/equipment/hero-fleet.png",
     short: "Used crawler crane sourcing for heavy lifting, infrastructure and restricted ground sites.",
@@ -211,8 +211,8 @@ export const fallbackProducts: SiteProduct[] = [
   {
     slug: "lifting-accessories-export-package",
     name: "Lifting Accessories Export Package",
-    category: "accessories",
-    categoryLabel: "Accessories",
+    category: "spare-parts",
+    categoryLabel: "Spare Parts",
     badge: "Parts support",
     image: "/assets/equipment/factory-workshop.png",
     short: "Accessories, hydraulic parts and spare-parts packages for cranes and aerial platforms.",
@@ -243,21 +243,21 @@ export const fallbackProducts: SiteProduct[] = [
 
 export const fallbackPosts: SitePost[] = [
   {
-    slug: "used-crane-buying-checklist",
-    title: "Used crane buying checklist for overseas buyers",
-    excerpt: "Key points to confirm before paying for a used truck crane or crawler crane.",
+    slug: "choosing-aerial-work-platforms",
+    title: "How to choose aerial work platforms for rental fleets",
+    excerpt: "Compare working height, platform capacity, power type and jobsite conditions before purchasing.",
     date: "2026-06-01",
   },
   {
-    slug: "boom-lift-vs-scissor-lift",
-    title: "Boom lift or scissor lift: which aerial platform fits your project?",
-    excerpt: "Compare reach, height, platform size and jobsite conditions before sourcing.",
+    slug: "crane-procurement-guide",
+    title: "Crane procurement guide for global machinery buyers",
+    excerpt: "Key points for truck cranes, crawler cranes, inspection details and export shipment planning.",
     date: "2026-05-18",
   },
   {
-    slug: "shipping-used-equipment-from-china",
-    title: "Shipping used lifting equipment from China",
-    excerpt: "RoRo, flat rack and container planning notes for cranes and aerial platforms.",
+    slug: "spare-parts-supply-planning",
+    title: "Spare parts supply planning for lifting equipment fleets",
+    excerpt: "How rental companies and dealers can plan parts packages, replenishment and combined shipments.",
     date: "2026-04-29",
   },
 ];
@@ -281,8 +281,13 @@ function parseSpecs(value = "") {
 
 function categoryFromCms(product: any) {
   const cat = product.categories?.[0];
-  if (!cat) return { category: "used-cranes", label: "Used Cranes" };
-  const slug = cat.slug || "used-cranes";
+  if (!cat) return { category: "cranes", label: "Cranes" };
+  const aliases: Record<string, string> = {
+    "used-cranes": "cranes",
+    "aerial-platforms": "aerial-work-platforms",
+    accessories: "spare-parts",
+  };
+  const slug = aliases[cat.slug] || cat.slug || "cranes";
   const known = siteCategories.find((item) => item.id === slug);
   return { category: known?.id || slug, label: cat.name || known?.label || "Equipment" };
 }

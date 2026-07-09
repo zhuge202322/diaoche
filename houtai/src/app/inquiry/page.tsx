@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, MapPin, Phone, ShieldCheck, TimerReset, UserRound } from "lucide-react";
+import { ArrowRight, Mail, MapPin, Phone, ShieldCheck, TimerReset } from "lucide-react";
 import InquiryForm from "@/components/site/InquiryForm";
 import Reveal from "@/components/site/Reveal";
 import SiteFrame from "@/components/site/SiteFrame";
@@ -8,7 +8,7 @@ import { loadSiteProduct, loadSiteProducts } from "@/lib/site-data";
 
 export const metadata = {
   title: "Inquiry",
-  description: "Contact Sarah for used cranes, aerial work platforms and lifting equipment accessories from China.",
+  description: "Contact Pillarlift for aerial work platforms, cranes, spare parts and available stock from China.",
 };
 
 export default async function InquiryPage({
@@ -25,9 +25,9 @@ export default async function InquiryPage({
       <section className="pl-page-hero">
         <div className="pl-container">
           <span className="pl-eyebrow">Request quotation</span>
-          <h1>Contact Sarah for used cranes and aerial work platforms.</h1>
+          <h1>Request a quote for aerial work platforms, cranes or spare parts.</h1>
           <p>
-            Share your required machine type, working height, lifting capacity, year range, condition preference and destination market.
+            Share your required machine type, working height, lifting capacity, customization needs, quantity and destination market.
           </p>
         </div>
       </section>
@@ -43,7 +43,7 @@ export default async function InquiryPage({
               <span className="pl-eyebrow">Fast response</span>
               <h2 style={{ fontSize: 30 }}>What to include</h2>
               <p className="pl-muted">
-                The more complete the request, the faster Sarah can match available equipment and prepare an export-ready quotation.
+                The more complete the request, the faster Pillarlift can match equipment, stock machines, spare parts and export-ready quotation details.
               </p>
               <ul className="pl-feature-list">
                 <li>
@@ -57,11 +57,11 @@ export default async function InquiryPage({
                 </li>
               </ul>
               <div className="pl-contact-list">
-                <span>
-                  <UserRound size={18} /> {siteConfig.contactName}
-                </span>
                 <a href={siteConfig.whatsappHref}>
                   <Phone size={18} /> WhatsApp: {siteConfig.whatsapp}
+                </a>
+                <a href={siteConfig.emailHref}>
+                  <Mail size={18} /> {siteConfig.email}
                 </a>
                 <span>
                   <MapPin size={18} /> {siteConfig.location}

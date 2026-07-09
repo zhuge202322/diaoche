@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { MapPin, Phone, Send, UserRound } from "lucide-react";
+import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { siteConfig } from "@/lib/site-config";
 
 export default function SiteFooter() {
@@ -11,36 +11,36 @@ export default function SiteFooter() {
             <span className="pl-brand-mark" aria-hidden="true" />
             <span>
               <strong>{siteConfig.brand}</strong>
-              <small>Cranes & Access</small>
+              <small>Heavy Machinery</small>
             </span>
           </Link>
           <p>{siteConfig.description}</p>
         </div>
         <div>
           <h3>Products</h3>
-          <Link href="/products">Used Cranes</Link>
-          <Link href="/products">Scissor Lifts</Link>
-          <Link href="/products">Boom Lifts</Link>
-          <Link href="/products">Accessories</Link>
+          <Link href="/aerial-work-platforms">Aerial Work Platforms</Link>
+          <Link href="/cranes">Cranes</Link>
+          <Link href="/spare-parts">Spare Parts</Link>
+          <Link href="/available-stock">Available Stock</Link>
         </div>
         <div>
           <h3>Company</h3>
+          <Link href="/solutions">Solutions</Link>
           <Link href="/about">About Us</Link>
-          <Link href="/products">Product Catalog</Link>
-          <Link href="/inquiry">Request Quote</Link>
-          <Link href="/admin">Admin Panel</Link>
+          <Link href="/news">News</Link>
+          <Link href="/contact-us">Contact Us</Link>
         </div>
         <div>
           <h3>Contact</h3>
           <span><MapPin size={18} /> {siteConfig.location}</span>
-          <span><UserRound size={18} /> {siteConfig.contactName}</span>
           <a href={siteConfig.whatsappHref}><Phone size={18} /> WhatsApp: {siteConfig.whatsapp}</a>
-          <Link className="pl-btn" href="/inquiry"><Send size={17} /> Send Inquiry</Link>
+          <a href={siteConfig.emailHref}><Mail size={18} /> {siteConfig.email}</a>
+          <Link className="pl-btn" href="/contact-us"><Send size={17} /> Send Inquiry</Link>
         </div>
       </div>
       <div className="pl-container pl-footer-bottom">
         <span>Copyright 2026 {siteConfig.company}. All rights reserved.</span>
-        <span>Frontend and admin are integrated in one Next.js project.</span>
+        <span>Manufacturer, rental fleet partner and export supplier from China.</span>
       </div>
     </footer>
   );

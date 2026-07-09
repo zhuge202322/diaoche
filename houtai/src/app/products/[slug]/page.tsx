@@ -9,19 +9,19 @@ import { loadRelatedProducts, loadSiteProduct } from "@/lib/site-data";
 
 const faqs = [
   {
-    question: "Can you provide used equipment condition details?",
+    question: "Can you provide equipment details before quotation?",
     answer:
-      "Yes. Pillarlift can provide available photos, core specifications and practical condition notes before quotation confirmation.",
+      "Yes. Pillarlift can provide photos, core specifications, customization notes, stock status and practical configuration details before quotation confirmation.",
   },
   {
     question: "What information should I send before quotation?",
     answer:
-      "Please share machine type, lifting capacity or working height, preferred brand, year range, budget, quantity and destination port.",
+      "Please share machine type, lifting capacity or working height, customization needs, budget, quantity and destination port.",
   },
   {
     question: "Can you provide accessories or spare parts with the shipment?",
     answer:
-      "Yes. Pillarlift supplies lifting equipment accessories and can prepare suitable spare-parts support for cranes and aerial platforms.",
+      "Yes. Pillarlift supplies spare parts and accessories for aerial work platforms, cranes and rental fleet maintenance.",
   },
 ];
 
@@ -131,7 +131,7 @@ export default async function ProductDetailPage({ params }: { params: Promise<{ 
           <Reveal>
             <div>
               <span className="pl-eyebrow">Built for buyers</span>
-              <h2>Practical details for used equipment procurement.</h2>
+              <h2>Practical details for lifting equipment procurement.</h2>
               <ul className="pl-feature-list">
                 {product.features.map((feature) => (
                   <li key={feature}>

@@ -31,13 +31,13 @@ export default function ProductCatalog({ products }: { products: SiteProduct[] }
         </div>
         <label className="pl-field">
           <span>Search</span>
-          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Crane, boom lift, scissor..." />
+          <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Scissor lift, boom lift, crane, parts..." />
         </label>
       </aside>
       <section>
         <div className="pl-catalog-top">
           <strong>{filtered.length} equipment options</strong>
-          <span className="pl-chip"><Search size={14} /> Backend-ready catalog</span>
+          <span className="pl-chip"><Search size={14} /> Manufacturer and rental fleet catalog</span>
         </div>
         <div className="pl-product-grid pl-catalog-grid">
           {filtered.map((product) => <ProductCard key={product.slug} product={product} />)}

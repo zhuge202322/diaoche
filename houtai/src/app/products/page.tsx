@@ -5,7 +5,7 @@ import { loadSiteProducts, siteCategories } from "@/lib/site-data";
 
 export const metadata = {
   title: "Products",
-  description: "Browse used cranes, aerial work platforms, scissor lifts, boom lifts and lifting equipment accessories from China.",
+  description: "Browse aerial work platforms, cranes, spare parts and available stock from Pillarlift.",
 };
 
 export default async function ProductsPage() {
@@ -16,9 +16,9 @@ export default async function ProductsPage() {
       <section className="pl-page-hero">
         <div className="pl-container">
           <span className="pl-eyebrow">Equipment catalog</span>
-          <h1>Used cranes and aerial work platforms for global buyers.</h1>
+          <h1>Aerial work platforms, cranes and spare parts for global buyers.</h1>
           <p>
-            Filter by equipment family, compare core specifications and open product pages for condition details, applications and quotation steps.
+            Filter by equipment family, compare core specifications and open product pages for applications, customization and quotation steps.
           </p>
         </div>
       </section>

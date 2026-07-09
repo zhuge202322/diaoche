@@ -21,67 +21,76 @@ import { loadFeaturedSiteProducts } from "@/lib/site-data";
 const categoryCards = [
   {
     icon: Truck,
-    title: "Used Cranes",
-    text: "Mobile cranes, truck cranes, crawler cranes and compact lifting options from Chinese suppliers.",
+    title: "Cranes",
+    text: "Truck cranes, all-terrain cranes, rough-terrain cranes, crawler cranes and used crane options.",
   },
   {
     icon: Building2,
     title: "Aerial Work Platforms",
-    text: "Boom lifts and scissor lifts for maintenance, installation, rental and industrial access.",
+    text: "Scissor lifts, boom lifts, spider lifts, truck-mounted platforms and used aerial lifts.",
   },
   {
     icon: Boxes,
-    title: "Accessories & Parts",
-    text: "Lifting accessories, hydraulic parts, spare-parts packages and export documentation support.",
+    title: "Spare Parts",
+    text: "Factory-direct spare parts, hydraulic components, maintenance kits and accessories.",
   },
+];
+
+const scrollingImages = [
+  { src: "/assets/equipment/scissor-lift.png", alt: "Scissor lift" },
+  { src: "/assets/equipment/articulating-boom-lift.png", alt: "Articulating boom lift" },
+  { src: "/assets/equipment/telescopic-truck-crane.png", alt: "Truck crane" },
+  { src: "/assets/equipment/knuckle-boom-crane.png", alt: "Truck-mounted lifting equipment" },
+  { src: "/assets/equipment/hero-fleet.png", alt: "Pillarlift rental fleet" },
+  { src: "/assets/equipment/factory-workshop.png", alt: "Pillarlift workshop" },
 ];
 
 const services = [
   {
     icon: ClipboardCheck,
-    title: "Requirement Review",
-    text: "Machine type, working height, lifting capacity, year range, condition and destination are checked before quotation.",
+    title: "Custom Requirements",
+    text: "Working height, lifting capacity, power type, chassis, attachments and destination market are reviewed before quotation.",
   },
   {
     icon: Factory,
-    title: "Brand Sourcing",
-    text: "Close cooperation with major Chinese brands helps buyers compare new and used equipment options.",
+    title: "Manufacturing Strength",
+    text: "Top-ranked manufacturing capability supports customized aerial platforms, cranes and spare parts supply.",
   },
   {
     icon: Ship,
-    title: "Export Logistics",
-    text: "RoRo, container, flat rack and parts shipment options are prepared with loading documents.",
+    title: "Worldwide Shipping",
+    text: "Container, flat rack, RoRo and spare-parts shipment plans are prepared for customers worldwide.",
   },
   {
     icon: Headset,
-    title: "After-Sales Support",
-    text: "Accessories, manuals, remote guidance and replenishment packages support long-term fleets.",
+    title: "Rental Fleet Support",
+    text: "Thousands of fleet machines and 20+ years of experience help rental companies and dealers scale quickly.",
   },
 ];
 
 const process = [
-  ["01", "Clarify Specs", "Confirm equipment type, capacity, working height, year range, condition and destination."],
-  ["02", "Match Options", "Compare suitable cranes, aerial platforms, accessories, shipping plans and commercial terms."],
-  ["03", "Review Condition", "Coordinate photos, machine details, available documents and buyer confirmation."],
+  ["01", "Clarify Specs", "Confirm machine type, capacity, working height, power source, customization and destination."],
+  ["02", "Match Equipment", "Compare aerial platforms, cranes, spare parts, available stock and rental fleet options."],
+  ["03", "Inspect Details", "Coordinate photos, videos, machine information, inspection notes and buyer confirmation."],
   ["04", "Ship Worldwide", "Prepare packing, customs documents, loading photos and logistics tracking."],
-  ["05", "Support Fleet", "Supply spare parts, manuals, remote guidance and distributor support."],
+  ["05", "Support Fleet", "Supply spare parts, manuals, technical guidance and distributor support."],
 ];
 
 const news = [
   {
     date: "2026-06-01",
-    title: "Used crane buying checklist for overseas buyers",
-    text: "Key points to confirm before paying for a used truck crane or crawler crane.",
+    title: "Aerial work platform selection for rental fleets",
+    text: "Compare working height, platform capacity, power type and fleet support requirements.",
   },
   {
     date: "2026-05-18",
-    title: "Boom lift or scissor lift: which aerial platform fits your project?",
-    text: "Compare reach, height, platform size and jobsite conditions before sourcing.",
+    title: "Crane procurement guide for machinery buyers",
+    text: "Key points for truck cranes, crawler cranes, inspection details and export shipment planning.",
   },
   {
     date: "2026-04-29",
-    title: "Shipping used lifting equipment from China",
-    text: "RoRo, flat rack and container planning notes for cranes and aerial platforms.",
+    title: "Spare parts supply planning for equipment fleets",
+    text: "Parts packages, replenishment planning and combined shipments for rental companies and dealers.",
   },
 ];
 
@@ -92,13 +101,23 @@ export default async function HomePage() {
     <SiteFrame>
       <HeroSlider />
 
+      <section className="pl-image-marquee" aria-label="Pillarlift equipment gallery">
+        <div className="pl-marquee-track">
+          {[...scrollingImages, ...scrollingImages].map((image, index) => (
+            <figure key={`${image.src}-${index}`}>
+              <img src={image.src} alt={image.alt} />
+            </figure>
+          ))}
+        </div>
+      </section>
+
       <section className="pl-section">
         <div className="pl-container">
           <Reveal>
             <div className="pl-section-head">
               <div>
                 <span className="pl-eyebrow">Product range</span>
-                <h2>Used cranes, aerial work platforms and accessories for B2B procurement.</h2>
+                <h2>Aerial work platforms, cranes and spare parts for global buyers.</h2>
               </div>
               <p className="pl-muted">{siteConfig.description}</p>
             </div>
@@ -159,24 +178,24 @@ export default async function HomePage() {
           <Reveal>
             <div>
               <span className="pl-eyebrow">Pillarlift export support</span>
-              <h2>Equipment sourcing support from model selection to shipment.</h2>
+              <h2>Manufacturer, rental fleet partner and export supplier from China.</h2>
               <p className="pl-muted">{companyIntro}</p>
               <div className="pl-metric-grid">
                 <div className="pl-metric">
-                  <strong>2018</strong>
-                  <span>Established in Shenzhen</span>
+                  <strong>20+</strong>
+                  <span>Years of industry experience</span>
                 </div>
                 <div className="pl-metric">
-                  <strong>New + Used</strong>
-                  <span>Lifting equipment supply</span>
+                  <strong>Top 10</strong>
+                  <span>Manufacturer ranking in China</span>
                 </div>
                 <div className="pl-metric">
-                  <strong>Major</strong>
-                  <span>Chinese brand cooperation</span>
+                  <strong>Top 30</strong>
+                  <span>Worldwide industry ranking</span>
                 </div>
                 <div className="pl-metric">
-                  <strong>Sarah</strong>
-                  <span>WhatsApp: {siteConfig.whatsapp}</span>
+                  <strong>1000s</strong>
+                  <span>Machines in rental fleet support</span>
                 </div>
               </div>
             </div>
@@ -190,10 +209,10 @@ export default async function HomePage() {
             <div className="pl-section-head">
               <div>
                 <span className="pl-eyebrow">Why buyers choose us</span>
-                <h2>Clear sourcing communication for used equipment deals.</h2>
+                <h2>Factory-direct lifting solutions with rental fleet experience.</h2>
               </div>
               <p className="pl-muted">
-                Every inquiry is handled with practical equipment knowledge, transparent available options and export-focused communication.
+                Pillarlift combines manufacturing capability, rental operation experience and export support for customers worldwide.
               </p>
             </div>
           </Reveal>
@@ -236,10 +255,10 @@ export default async function HomePage() {
             <div className="pl-section-head">
               <div>
                 <span className="pl-eyebrow">Insights</span>
-                <h2>Practical buying notes for machinery importers.</h2>
+                <h2>Practical notes for rental companies, dealers and machinery importers.</h2>
               </div>
               <Link className="pl-text-link" href="/inquiry">
-                Talk to Sarah <ArrowRight size={16} />
+                Contact Pillarlift <ArrowRight size={16} />
               </Link>
             </div>
           </Reveal>
@@ -262,9 +281,9 @@ export default async function HomePage() {
           <div>
             <span className="pl-eyebrow">Export quote</span>
             <h2>Send your working height, lifting capacity or equipment request.</h2>
-            <p className="pl-muted">Sarah will help match available cranes, aerial platforms or accessories from China.</p>
+            <p className="pl-muted">Pillarlift will help match aerial platforms, cranes, spare parts, stock machines and shipping plans.</p>
           </div>
-          <Link className="pl-btn pl-btn-light" href="/inquiry">
+          <Link className="pl-btn pl-btn-light" href="/contact-us">
             Start Inquiry <BadgeCheck size={18} />
           </Link>
         </div>

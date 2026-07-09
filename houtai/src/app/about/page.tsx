@@ -10,27 +10,27 @@ export const metadata = {
 };
 
 const timeline = [
-  ["2018", "Shenzhen Pillarlift Co., Ltd. was established as a lifting equipment supplier and exporter from China."],
-  ["2020", "Expanded sourcing cooperation with major Chinese brands for cranes, aerial work platforms and accessories."],
-  ["2023", "Strengthened new and used equipment supply for overseas distributors, contractors and rental fleets."],
-  ["2026", "Improved the independent website experience for faster B2B inquiry and product comparison."],
+  ["20+ Years", "Deep industry experience in aerial work platforms, cranes, rental operations and export supply."],
+  ["Top 10 China", "Recognized among China's leading manufacturers for lifting equipment and access machinery."],
+  ["Top 30 Worldwide", "Global ranking and export experience support international buyers and distributors."],
+  ["1000s Fleet", "Large rental fleet operation helps customers compare equipment, stock and long-term support."],
 ];
 
 const capabilities = [
   {
     icon: Factory,
-    title: "Chinese Brand Network",
-    text: "Close cooperation with major Chinese brands for scissor lifts, boom lifts, mobile cranes, truck cranes and crawler cranes.",
+    title: "Manufacturing Capability",
+    text: "Custom aerial work platforms, cranes and spare parts supported by strong production and factory-direct pricing.",
   },
   {
     icon: ShieldCheck,
-    title: "New and Used Equipment",
-    text: "Reliable new and used lifting equipment options with condition photos, configuration review and practical export support.",
+    title: "Rental Fleet Experience",
+    text: "Thousands of machines in rental operation help buyers understand real jobsite performance and fleet needs.",
   },
   {
     icon: Wrench,
-    title: "Accessories Support",
-    text: "Lifting equipment accessories, spare parts and documentation prepared for global customers and fleet operators.",
+    title: "Worldwide Export Support",
+    text: "Inspection, documents, spare parts, packing and shipping plans prepared for global customers and dealers.",
   },
 ];
 
@@ -40,8 +40,8 @@ export default function AboutPage() {
       <section className="pl-page-hero">
         <div className="pl-container">
           <span className="pl-eyebrow">About {siteConfig.brand}</span>
-          <h1>A professional aerial work platform supplier and crane equipment exporter.</h1>
-          <p>Established in 2018, Pillarlift supplies reliable new and used lifting equipment, cranes and accessories from China.</p>
+          <h1>A leading manufacturer and rental service provider for aerial work platforms and cranes.</h1>
+          <p>Pillarlift supplies customized lifting equipment, spare parts and export support for customers worldwide.</p>
         </div>
       </section>
 
@@ -53,13 +53,13 @@ export default function AboutPage() {
               <h2>{siteConfig.company}</h2>
               <p className="pl-muted">{companyIntro}</p>
               <p className="pl-muted">
-                Our main business covers used cranes and aerial work platforms, including scissor lifts, boom lifts, mobile cranes, truck cranes, crawler cranes and lifting equipment accessories.
+                Our core categories are aerial work platforms, cranes and spare parts, covering scissor lifts, boom lifts, truck-mounted platforms, spider lifts, truck cranes, crawler cranes and accessories.
               </p>
               <div className="pl-button-row">
-                <Link className="pl-btn" href="/products">
+                <Link className="pl-btn" href="/aerial-work-platforms">
                   View Catalog <ArrowRight size={18} />
                 </Link>
-                <Link className="pl-btn" href="/inquiry">
+                <Link className="pl-btn" href="/contact-us">
                   Send Inquiry <BadgeCheck size={18} />
                 </Link>
               </div>
@@ -79,10 +79,10 @@ export default function AboutPage() {
             <div className="pl-section-head">
               <div>
                 <span className="pl-eyebrow">Development path</span>
-                <h2>Built around reliable equipment sourcing and export service.</h2>
+                <h2>Built around manufacturing, rental fleets and export service.</h2>
               </div>
               <p className="pl-muted">
-                Pillarlift works with global customers who need competitive prices, clear equipment information and professional export coordination.
+                Pillarlift works with global customers who need high-quality equipment, reliable performance, fast delivery and cost-effective lifting solutions.
               </p>
             </div>
           </Reveal>
@@ -105,10 +105,10 @@ export default function AboutPage() {
             <div className="pl-section-head">
               <div>
                 <span className="pl-eyebrow">Capabilities</span>
-                <h2>Equipment sourcing, accessories and export support in one workflow.</h2>
+                <h2>Manufacturing, rental experience, spare parts and export support in one workflow.</h2>
               </div>
               <p className="pl-muted">
-                Sarah and the Pillarlift team help buyers compare models, review condition details, confirm accessories and prepare shipment information.
+                The Pillarlift team helps buyers compare models, customize requirements, confirm spare parts and prepare shipment information.
               </p>
             </div>
           </Reveal>
@@ -134,9 +134,9 @@ export default function AboutPage() {
           <Reveal>
             <div>
               <span className="pl-eyebrow">Global coverage</span>
-              <h2>Supplying lifting equipment and accessories worldwide.</h2>
+              <h2>Supplying lifting equipment, spare parts and stock machines worldwide.</h2>
               <p className="pl-muted">
-                Pillarlift supplies aerial work platforms, cranes and accessories to global customers through professional China-based sourcing and export service.
+                Pillarlift supplies aerial work platforms, cranes and spare parts to global customers through professional China-based manufacturing and export service.
               </p>
               <div className="pl-meta">
                 {["English documents", "Port loading photos", "Parts packages", "Remote support"].map((item) => (
