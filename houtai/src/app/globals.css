@@ -237,9 +237,8 @@ body.pl-lock {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.98);
   border-bottom: 1px solid rgba(20, 20, 20, 0.08);
-  backdrop-filter: blur(14px);
 }
 
 .pl-nav {
@@ -698,6 +697,12 @@ body.pl-lock {
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
+.pl-category-card {
+  contain: layout paint style;
+  content-visibility: auto;
+  contain-intrinsic-size: 240px;
+}
+
 .pl-category-card::before {
   content: "";
   position: absolute;
@@ -729,6 +734,9 @@ body.pl-lock {
 
 .pl-product-card {
   overflow: hidden;
+  contain: layout paint style;
+  content-visibility: auto;
+  contain-intrinsic-size: 460px;
   transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
@@ -1345,8 +1353,8 @@ body.pl-lock {
 
 .pl-reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 560ms ease, transform 560ms ease;
+  transform: translateY(14px);
+  transition: opacity 260ms ease, transform 260ms ease;
 }
 
 .pl-reveal.pl-visible {
