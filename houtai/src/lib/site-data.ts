@@ -1,3 +1,4 @@
+import collectedProducts from "@/data/kinglift-products.json";
 import { getFeaturedProductsData, getPostBySlug, getPostsData, getProductBySlug, getProductsData } from "@/lib/cms";
 
 export type SiteCategory = {
@@ -29,6 +30,15 @@ export type SitePost = {
   date: string;
 };
 
+type CollectedProduct = SiteProduct & {
+  sourceUrl?: string;
+  sourceMenuUrl?: string;
+  subCategorySlug?: string;
+  subCategoryLabel?: string;
+  featured?: boolean;
+  sortOrder?: number;
+};
+
 export const siteCategories: SiteCategory[] = [
   {
     id: "all",
@@ -52,194 +62,34 @@ export const siteCategories: SiteCategory[] = [
   },
 ];
 
-export const fallbackProducts: SiteProduct[] = [
-  {
-    slug: "used-telescopic-truck-crane",
-    name: "Used Telescopic Truck Crane",
-    category: "cranes",
-    categoryLabel: "Cranes",
-    badge: "Export ready",
-    image: "/assets/equipment/telescopic-truck-crane.png",
-    short: "Road-ready used truck crane options for construction, logistics and municipal lifting.",
-    summary:
-      "A practical used telescopic crane solution for buyers who need proven lifting capacity, fast delivery and professional export support.",
-    specs: {
-      "Lifting class": "25-50 t options",
-      "Boom type": "Telescopic boom",
-      "Condition": "Used / inspected",
-      "Shipping": "RoRo or flat rack",
-      "Support": "Parts and documents",
-    },
-    features: [
-      "Inspected condition photos before confirmation",
-      "Flexible brand and chassis matching from Chinese suppliers",
-      "Export packing, loading photos and document support",
-      "Recommended spare-parts package available",
-    ],
-    applications: ["Construction lifting", "Rental fleets", "Utility projects", "Steel handling"],
-    leadTime: "15-35 days",
-    gallery: [
-      "/assets/equipment/telescopic-truck-crane.png",
-      "/assets/equipment/hero-fleet.png",
-      "/assets/equipment/factory-workshop.png",
-    ],
-  },
-  {
-    slug: "used-knuckle-boom-crane",
-    name: "Used Knuckle Boom Crane",
-    category: "cranes",
-    categoryLabel: "Cranes",
-    badge: "Compact reach",
-    image: "/assets/equipment/knuckle-boom-crane.png",
-    short: "Foldable truck-mounted loader crane for materials delivery and roadside handling.",
-    summary:
-      "A compact used loader crane option for distributors and contractors needing flexible side reach and efficient truck body layout.",
-    specs: {
-      "Lifting moment": "8-20 t.m options",
-      "Boom style": "Knuckle boom",
-      "Control": "Manual / remote options",
-      "Condition": "Used / refurbished options",
-      "Shipping": "RoRo or container plan",
-    },
-    features: [
-      "Foldable boom geometry for urban delivery routes",
-      "Hydraulic system inspection before export",
-      "Attachments can be quoted with the machine",
-      "Subframe and truck body review available",
-    ],
-    applications: ["Building materials", "Port logistics", "Municipal service", "Agricultural supply"],
-    leadTime: "15-30 days",
-    gallery: [
-      "/assets/equipment/knuckle-boom-crane.png",
-      "/assets/equipment/factory-workshop.png",
-      "/assets/equipment/hero-fleet.png",
-    ],
-  },
-  {
-    slug: "used-articulating-boom-lift",
-    name: "Used Articulating Boom Lift",
-    category: "aerial-work-platforms",
-    categoryLabel: "Aerial Work Platforms",
-    badge: "Up-and-over",
-    image: "/assets/equipment/articulating-boom-lift.png",
-    short: "Used articulating boom lift for plant maintenance, facade work and rental fleets.",
-    summary:
-      "Aerial work platform options sourced for buyers who need working height, obstacle reach and competitive used-equipment pricing.",
-    specs: {
-      "Working height": "16-30 m options",
-      "Platform capacity": "200-250 kg",
-      "Power": "Diesel / electric options",
-      "Condition": "Used / inspected",
-      "Documents": "Manuals and loading plan",
-    },
-    features: [
-      "Working height and outreach matched to project needs",
-      "Condition videos and photos before shipment",
-      "Battery, tire and controller details checked",
-      "Rental fleet purchase batches supported",
-    ],
-    applications: ["Industrial maintenance", "Facade work", "Power plants", "Rental fleets"],
-    leadTime: "10-30 days",
-    gallery: [
-      "/assets/equipment/articulating-boom-lift.png",
-      "/assets/equipment/scissor-lift.png",
-      "/assets/equipment/factory-workshop.png",
-    ],
-  },
-  {
-    slug: "used-scissor-lift",
-    name: "Used Scissor Lift",
-    category: "aerial-work-platforms",
-    categoryLabel: "Aerial Work Platforms",
-    badge: "Large deck",
-    image: "/assets/equipment/scissor-lift.png",
-    short: "Used scissor lift options for warehouses, installation work and rental fleets.",
-    summary:
-      "A cost-effective aerial platform category for buyers needing vertical access equipment with export support from China.",
-    specs: {
-      "Working height": "6-16 m options",
-      "Platform type": "Electric / rough-terrain",
-      "Capacity": "230-450 kg options",
-      "Condition": "Used / inspected",
-      "Shipping": "Container friendly",
-    },
-    features: [
-      "Battery and charger status can be checked",
-      "Non-marking tire options for indoor work",
-      "Batch sourcing for rental companies",
-      "Spare parts and manuals available",
-    ],
-    applications: ["Warehouse fit-out", "MEP installation", "Factory maintenance", "Rental fleets"],
-    leadTime: "10-25 days",
-    gallery: [
-      "/assets/equipment/scissor-lift.png",
-      "/assets/equipment/articulating-boom-lift.png",
-      "/assets/equipment/hero-fleet.png",
-    ],
-  },
-  {
-    slug: "used-crawler-crane",
-    name: "Used Crawler Crane",
-    category: "cranes",
-    categoryLabel: "Cranes",
-    badge: "Stable lifting",
-    image: "/assets/equipment/hero-fleet.png",
-    short: "Used crawler crane sourcing for heavy lifting, infrastructure and restricted ground sites.",
-    summary:
-      "Crawler crane options are selected around lifting load, boom length, site ground condition and export transport limits.",
-    specs: {
-      "Capacity range": "50-150 t options",
-      "Undercarriage": "Crawler",
-      "Condition": "Used / inspected",
-      "Shipping": "Breakbulk / flat rack plan",
-      "Support": "Parts package available",
-    },
-    features: [
-      "Machine history and condition review before quotation",
-      "Transport plan prepared around boom and counterweight",
-      "Chinese major-brand sourcing network",
-      "Remote inspection support for overseas buyers",
-    ],
-    applications: ["Infrastructure", "Bridge work", "Energy projects", "Heavy construction"],
-    leadTime: "20-45 days",
-    gallery: [
-      "/assets/equipment/hero-fleet.png",
-      "/assets/equipment/telescopic-truck-crane.png",
-      "/assets/equipment/factory-workshop.png",
-    ],
-  },
-  {
-    slug: "lifting-accessories-export-package",
-    name: "Lifting Accessories Export Package",
-    category: "spare-parts",
-    categoryLabel: "Spare Parts",
-    badge: "Parts support",
-    image: "/assets/equipment/factory-workshop.png",
-    short: "Accessories, hydraulic parts and spare-parts packages for cranes and aerial platforms.",
-    summary:
-      "Pillarlift can prepare supporting accessories and parts packages alongside used equipment shipments.",
-    specs: {
-      "Scope": "Accessories and spare parts",
-      "Documentation": "Parts list and packing plan",
-      "Brands": "Chinese major-brand support",
-      "Packing": "Export carton / crate",
-      "Support": "Remote matching assistance",
-    },
-    features: [
-      "Parts list prepared around equipment model",
-      "Consumables and common service items available",
-      "Packing labels for distributor warehouse intake",
-      "Can be shipped with equipment or separately",
-    ],
-    applications: ["Distributor stock", "Fleet service", "Project spares", "Maintenance teams"],
-    leadTime: "7-20 days",
-    gallery: [
-      "/assets/equipment/factory-workshop.png",
-      "/assets/equipment/knuckle-boom-crane.png",
-      "/assets/equipment/scissor-lift.png",
-    ],
-  },
+const aerialSubcategoryPriority = [
+  "scissor-lifts",
+  "articulating-boom-lifts",
+  "telescopic-boom-lifts",
+  "towable-boom-lifts",
+  "boom-lifts",
+  "spider-lifts",
+  "truck-mounted-platforms",
+  "used-aerial-lifts",
 ];
+
+const aerialSubcategorySlugs = new Set(aerialSubcategoryPriority);
+
+const importedProducts: SiteProduct[] = (collectedProducts as CollectedProduct[]).map((product) => ({
+  slug: product.slug,
+  name: product.name,
+  category: "aerial-work-platforms",
+  categoryLabel: product.subCategoryLabel || product.categoryLabel || "Aerial Work Platforms",
+  badge: product.badge || product.subCategoryLabel || "Aerial work platform",
+  image: product.image,
+  short: product.short,
+  summary: product.summary,
+  specs: product.specs || {},
+  features: product.features || [],
+  applications: product.applications || [],
+  leadTime: product.leadTime || "Confirm before quotation",
+  gallery: product.gallery?.length ? product.gallery : product.image ? [product.image] : [],
+}));
 
 export const fallbackPosts: SitePost[] = [
   {
@@ -267,55 +117,120 @@ function stripHtml(value = "") {
 }
 
 function parseSpecs(value = "") {
-  const text = stripHtml(value);
+  const text = value
+    .replace(/<br\s*\/?>/gi, ";")
+    .replace(/<\/p>/gi, ";")
+    .replace(/<[^>]*>/g, " ")
+    .replace(/\r?\n/g, ";")
+    .replace(/\s+/g, " ")
+    .trim();
   const result: Record<string, string> = {};
-  for (const part of text.split(/\n|;|\|/)) {
-    const [rawKey, ...rest] = part.split(/:|：/);
+
+  for (const part of text.split(/;|\|/)) {
+    const [rawKey, ...rest] = part.split(/:|\uFF1A/);
     if (!rawKey || rest.length === 0) continue;
     const key = rawKey.trim();
     const val = rest.join(":").trim();
     if (key && val) result[key] = val;
   }
+
   return result;
 }
 
+function defaultSpecs(label: string) {
+  return {
+    "Main category": "Aerial Work Platforms",
+    "Product group": label,
+    "Working height": "Confirm before quotation",
+    "Inquiry support": "Inspection, parts, documents and worldwide shipping",
+  };
+}
+
+function defaultFeatures(label: string) {
+  if (label.toLowerCase().includes("boom")) {
+    return [
+      "Boom access platform for elevated work with horizontal or obstacle reach",
+      "Suitable for contractors, rental fleets, dealers and distributors",
+      "Model, reach type and working height can be confirmed before order",
+      "Export support available for documents, packing and shipment planning",
+    ];
+  }
+
+  return [
+    "Vertical access platform for indoor or outdoor maintenance work",
+    "Suitable for rental companies, contractors and equipment dealers",
+    "Model, height and configuration can be checked before quotation",
+    "Export support available for documents, packing and shipment planning",
+  ];
+}
+
+function defaultApplications(label: string) {
+  if (label.toLowerCase().includes("boom")) {
+    return ["Facade work", "Construction access", "Industrial maintenance", "Rental fleets"];
+  }
+
+  return ["Warehouse maintenance", "MEP installation", "Factory access", "Rental fleets"];
+}
+
 function categoryFromCms(product: any) {
-  const cat = product.categories?.[0];
-  if (!cat) return { category: "cranes", label: "Cranes" };
+  const categories = product.categories || [];
   const aliases: Record<string, string> = {
     "used-cranes": "cranes",
     "aerial-platforms": "aerial-work-platforms",
     accessories: "spare-parts",
   };
-  const slug = aliases[cat.slug] || cat.slug || "cranes";
-  const known = siteCategories.find((item) => item.id === slug);
-  return { category: known?.id || slug, label: cat.name || known?.label || "Equipment" };
+
+  const normalized = categories.map((cat: any) => ({
+    ...cat,
+    normalizedSlug: aliases[cat.slug] || cat.slug,
+  }));
+
+  const primary =
+    normalized.find((cat: any) => cat.normalizedSlug === "aerial-work-platforms") ||
+    normalized.find((cat: any) => siteCategories.some((item) => item.id === cat.normalizedSlug && item.id !== "all"));
+  const subcategory = aerialSubcategoryPriority
+    .map((slug) => normalized.find((cat: any) => cat.normalizedSlug === slug))
+    .find(Boolean);
+
+  if (primary?.normalizedSlug === "aerial-work-platforms" || subcategory) {
+    return {
+      category: "aerial-work-platforms",
+      label: subcategory?.name || primary?.name || "Aerial Work Platforms",
+    };
+  }
+
+  if (primary) {
+    const known = siteCategories.find((item) => item.id === primary.normalizedSlug);
+    return { category: known?.id || primary.normalizedSlug, label: primary.name || known?.label || "Equipment" };
+  }
+
+  return { category: "aerial-work-platforms", label: "Aerial Work Platforms" };
 }
 
-function mapCmsProduct(product: any, index: number): SiteProduct {
+function mapCmsProduct(product: any): SiteProduct {
   const cat = categoryFromCms(product);
-  const fallback = fallbackProducts[index % fallbackProducts.length];
   const specs = parseSpecs(product.specs);
-  const description = stripHtml(product.description || product.short_description || fallback.summary);
-  const image = product.images?.[0]?.src || fallback.image;
-  const gallery = product.images?.length ? product.images.map((img: any) => img.src).slice(0, 3) : fallback.gallery;
+  const description = stripHtml(product.description || product.short_description || "");
+  const short = stripHtml(product.short_description) || `${cat.label} available for export quotation.`;
+  const image = product.images?.[0]?.src || "";
+  const gallery = product.images?.length ? product.images.map((img: any) => img.src).slice(0, 3) : image ? [image] : [];
 
   return {
     slug: product.slug,
-    name: stripHtml(product.name) || fallback.name,
+    name: stripHtml(product.name) || cat.label,
     category: cat.category,
     categoryLabel: cat.label,
-    badge: product.featured ? "Featured" : fallback.badge,
+    badge: cat.label,
     image,
-    short: stripHtml(product.short_description) || fallback.short,
-    summary: description || fallback.summary,
-    specs: Object.keys(specs).length ? specs : fallback.specs,
+    short,
+    summary: description || short,
+    specs: Object.keys(specs).length ? specs : defaultSpecs(cat.label),
     features: description
       ? description.split(/\. |\n/).map((item) => item.trim()).filter(Boolean).slice(0, 4)
-      : fallback.features,
-    applications: fallback.applications,
-    leadTime: fallback.leadTime,
-    gallery: gallery.length ? gallery : fallback.gallery,
+      : defaultFeatures(cat.label),
+    applications: defaultApplications(cat.label),
+    leadTime: "Confirm before quotation",
+    gallery,
   };
 }
 
@@ -333,36 +248,38 @@ export async function loadSiteProducts(): Promise<SiteProduct[]> {
     const cmsProducts = await getProductsData("en");
     if (cmsProducts.length) return cmsProducts.map(mapCmsProduct);
   } catch {
-    return fallbackProducts;
+    return importedProducts;
   }
-  return fallbackProducts;
+  return importedProducts;
 }
 
 export async function loadFeaturedSiteProducts(): Promise<SiteProduct[]> {
   try {
     const cmsProducts = await getFeaturedProductsData("en");
-    if (cmsProducts.length) return cmsProducts.map(mapCmsProduct).slice(0, 4);
+    if (cmsProducts.length) return cmsProducts.map(mapCmsProduct).slice(0, 8);
   } catch {
-    return fallbackProducts.slice(0, 4);
+    return importedProducts.slice(0, 8);
   }
-  return fallbackProducts.slice(0, 4);
+  return importedProducts.slice(0, 8);
 }
 
 export async function loadSiteProduct(slug: string): Promise<SiteProduct | null> {
   try {
     const product = await getProductBySlug(slug, "en");
-    if (product) return mapCmsProduct(product, 0);
+    if (product) return mapCmsProduct(product);
   } catch {
-    return fallbackProducts.find((item) => item.slug === slug) || null;
+    return importedProducts.find((item) => item.slug === slug) || null;
   }
-  return fallbackProducts.find((item) => item.slug === slug) || null;
+  return importedProducts.find((item) => item.slug === slug) || null;
 }
 
 export async function loadRelatedProducts(product: SiteProduct): Promise<SiteProduct[]> {
   const products = await loadSiteProducts();
   return products
-    .filter((item) => item.slug !== product.slug && item.category === product.category)
+    .filter((item) => item.slug !== product.slug && item.categoryLabel === product.categoryLabel)
+    .concat(products.filter((item) => item.slug !== product.slug && item.category === product.category))
     .concat(products.filter((item) => item.slug !== product.slug && item.category !== product.category))
+    .filter((item, index, self) => self.findIndex((candidate) => candidate.slug === item.slug) === index)
     .slice(0, 3);
 }
 
