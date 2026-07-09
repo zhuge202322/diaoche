@@ -1,3 +1,4 @@
+import cstopAutoProducts from "@/data/cstopauto-products.json";
 import jhCraneProducts from "@/data/jhcrane-products.json";
 import kingliftProducts from "@/data/kinglift-products.json";
 import { getFeaturedProductsData, getPostBySlug, getPostsData, getProductBySlug, getProductsData } from "@/lib/cms";
@@ -82,7 +83,13 @@ const craneSubcategoryPriority = [
   "crawler-cranes",
 ];
 
-const importedCatalogProducts = [...(kingliftProducts as CollectedProduct[]), ...(jhCraneProducts as CollectedProduct[])];
+const partsSubcategoryPriority = ["joystick-controls"];
+
+const importedCatalogProducts = [
+  ...(kingliftProducts as CollectedProduct[]),
+  ...(jhCraneProducts as CollectedProduct[]),
+  ...(cstopAutoProducts as CollectedProduct[]),
+];
 
 const importedProducts: SiteProduct[] = importedCatalogProducts.map((product) => ({
   slug: product.slug,
@@ -156,6 +163,15 @@ function defaultSpecs(label: string, category = "Aerial Work Platforms") {
 }
 
 function defaultFeatures(label: string) {
+  if (label.toLowerCase().includes("control") || label.toLowerCase().includes("part")) {
+    return [
+      "Spare-parts option for lifting equipment maintenance and repair",
+      "Model, interface and photo details can be checked before quotation",
+      "Suitable for rental fleets, service teams, dealers and distributors",
+      "Export packing and combined spare-parts shipment support available",
+    ];
+  }
+
   if (label.toLowerCase().includes("crane")) {
     return [
       "Crane option for contractors, rental fleets, dealers and distributors",
@@ -183,6 +199,10 @@ function defaultFeatures(label: string) {
 }
 
 function defaultApplications(label: string) {
+  if (label.toLowerCase().includes("control") || label.toLowerCase().includes("part")) {
+    return ["Fleet maintenance", "Replacement parts", "Dealer stock", "Service teams"];
+  }
+
   if (label.toLowerCase().includes("crane")) {
     return ["Construction lifting", "Rental fleets", "Infrastructure projects", "Machinery trading"];
   }
@@ -215,6 +235,9 @@ function categoryFromCms(product: any) {
   const craneSubcategory = craneSubcategoryPriority
     .map((slug) => normalized.find((cat: any) => cat.normalizedSlug === slug))
     .find(Boolean);
+  const partsSubcategory = partsSubcategoryPriority
+    .map((slug) => normalized.find((cat: any) => cat.normalizedSlug === slug))
+    .find(Boolean);
 
   if (primary?.normalizedSlug === "aerial-work-platforms" || subcategory) {
     return {
@@ -227,6 +250,13 @@ function categoryFromCms(product: any) {
     return {
       category: "cranes",
       label: craneSubcategory?.name || primary?.name || "Cranes",
+    };
+  }
+
+  if (primary?.normalizedSlug === "spare-parts" || partsSubcategory) {
+    return {
+      category: "spare-parts",
+      label: partsSubcategory?.name || primary?.name || "Spare Parts",
     };
   }
 
@@ -255,7 +285,12 @@ function mapCmsProduct(product: any): SiteProduct {
     image,
     short,
     summary: description || short,
-    specs: Object.keys(specs).length ? specs : defaultSpecs(cat.label, cat.category === "cranes" ? "Cranes" : "Aerial Work Platforms"),
+    specs: Object.keys(specs).length
+      ? specs
+      : defaultSpecs(
+          cat.label,
+          cat.category === "cranes" ? "Cranes" : cat.category === "spare-parts" ? "Spare Parts" : "Aerial Work Platforms",
+        ),
     features: description
       ? description.split(/\. |\n/).map((item) => item.trim()).filter(Boolean).slice(0, 4)
       : defaultFeatures(cat.label),
