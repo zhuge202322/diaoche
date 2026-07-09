@@ -1,4 +1,5 @@
-import collectedProducts from "@/data/kinglift-products.json";
+import jhCraneProducts from "@/data/jhcrane-products.json";
+import kingliftProducts from "@/data/kinglift-products.json";
 import { getFeaturedProductsData, getPostBySlug, getPostsData, getProductBySlug, getProductsData } from "@/lib/cms";
 
 export type SiteCategory = {
@@ -73,14 +74,22 @@ const aerialSubcategoryPriority = [
   "used-aerial-lifts",
 ];
 
-const aerialSubcategorySlugs = new Set(aerialSubcategoryPriority);
+const craneSubcategoryPriority = [
+  "used-cranes",
+  "truck-cranes",
+  "all-terrain-cranes",
+  "rough-terrain-cranes",
+  "crawler-cranes",
+];
 
-const importedProducts: SiteProduct[] = (collectedProducts as CollectedProduct[]).map((product) => ({
+const importedCatalogProducts = [...(kingliftProducts as CollectedProduct[]), ...(jhCraneProducts as CollectedProduct[])];
+
+const importedProducts: SiteProduct[] = importedCatalogProducts.map((product) => ({
   slug: product.slug,
   name: product.name,
-  category: "aerial-work-platforms",
-  categoryLabel: product.subCategoryLabel || product.categoryLabel || "Aerial Work Platforms",
-  badge: product.badge || product.subCategoryLabel || "Aerial work platform",
+  category: product.category || "aerial-work-platforms",
+  categoryLabel: product.subCategoryLabel || product.categoryLabel || "Equipment",
+  badge: product.badge || product.subCategoryLabel || product.categoryLabel || "Equipment",
   image: product.image,
   short: product.short,
   summary: product.summary,
@@ -137,16 +146,25 @@ function parseSpecs(value = "") {
   return result;
 }
 
-function defaultSpecs(label: string) {
+function defaultSpecs(label: string, category = "Aerial Work Platforms") {
   return {
-    "Main category": "Aerial Work Platforms",
+    "Main category": category,
     "Product group": label,
-    "Working height": "Confirm before quotation",
+    "Core parameter": "Confirm before quotation",
     "Inquiry support": "Inspection, parts, documents and worldwide shipping",
   };
 }
 
 function defaultFeatures(label: string) {
+  if (label.toLowerCase().includes("crane")) {
+    return [
+      "Crane option for contractors, rental fleets, dealers and distributors",
+      "Core specifications can be checked before quotation confirmation",
+      "Condition photos, video inspection and documents can be coordinated",
+      "Export support available for loading, customs documents and shipping planning",
+    ];
+  }
+
   if (label.toLowerCase().includes("boom")) {
     return [
       "Boom access platform for elevated work with horizontal or obstacle reach",
@@ -165,6 +183,10 @@ function defaultFeatures(label: string) {
 }
 
 function defaultApplications(label: string) {
+  if (label.toLowerCase().includes("crane")) {
+    return ["Construction lifting", "Rental fleets", "Infrastructure projects", "Machinery trading"];
+  }
+
   if (label.toLowerCase().includes("boom")) {
     return ["Facade work", "Construction access", "Industrial maintenance", "Rental fleets"];
   }
@@ -175,7 +197,6 @@ function defaultApplications(label: string) {
 function categoryFromCms(product: any) {
   const categories = product.categories || [];
   const aliases: Record<string, string> = {
-    "used-cranes": "cranes",
     "aerial-platforms": "aerial-work-platforms",
     accessories: "spare-parts",
   };
@@ -191,11 +212,21 @@ function categoryFromCms(product: any) {
   const subcategory = aerialSubcategoryPriority
     .map((slug) => normalized.find((cat: any) => cat.normalizedSlug === slug))
     .find(Boolean);
+  const craneSubcategory = craneSubcategoryPriority
+    .map((slug) => normalized.find((cat: any) => cat.normalizedSlug === slug))
+    .find(Boolean);
 
   if (primary?.normalizedSlug === "aerial-work-platforms" || subcategory) {
     return {
       category: "aerial-work-platforms",
       label: subcategory?.name || primary?.name || "Aerial Work Platforms",
+    };
+  }
+
+  if (primary?.normalizedSlug === "cranes" || craneSubcategory) {
+    return {
+      category: "cranes",
+      label: craneSubcategory?.name || primary?.name || "Cranes",
     };
   }
 
@@ -224,7 +255,7 @@ function mapCmsProduct(product: any): SiteProduct {
     image,
     short,
     summary: description || short,
-    specs: Object.keys(specs).length ? specs : defaultSpecs(cat.label),
+    specs: Object.keys(specs).length ? specs : defaultSpecs(cat.label, cat.category === "cranes" ? "Cranes" : "Aerial Work Platforms"),
     features: description
       ? description.split(/\. |\n/).map((item) => item.trim()).filter(Boolean).slice(0, 4)
       : defaultFeatures(cat.label),
