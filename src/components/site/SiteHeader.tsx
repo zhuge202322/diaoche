@@ -17,7 +17,6 @@ export default function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
 
-  useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
     document.body.classList.toggle("pl-lock", open);
     return () => document.body.classList.remove("pl-lock");
@@ -39,12 +38,8 @@ export default function SiteHeader() {
       </div>
       <header className="pl-header">
         <div className="pl-container pl-nav">
-          <Link className="pl-brand" href="/" aria-label={`${siteConfig.brand} home`}>
-            <span className="pl-brand-mark" aria-hidden="true" />
-            <span>
-              <strong>{siteConfig.brand}</strong>
-              <small>Heavy Machinery</small>
-            </span>
+          <Link className="pl-brand" href="/" aria-label={`${siteConfig.brand} home`} onClick={() => setOpen(false)}>
+            <img className="pl-brand-logo" src="/assets/brand/pillarlift-logo.png" alt="Pillarlift" />
           </Link>
 
           <nav className="pl-links" aria-label="Primary navigation">
@@ -77,13 +72,13 @@ export default function SiteHeader() {
         <nav className={`pl-mobile-menu ${open ? "pl-open" : ""}`} aria-label="Mobile navigation">
           {primaryNavigation.map((link) => (
             <div className="pl-mobile-group" key={link.href}>
-              <Link href={link.href} className={active(pathname, link.href) ? "pl-active" : ""}>
+              <Link href={link.href} className={active(pathname, link.href) ? "pl-active" : ""} onClick={() => setOpen(false)}>
                 {link.label}
               </Link>
               {link.children ? (
                 <div className="pl-mobile-subnav">
                   {link.children.map((child) => (
-                    <Link key={child.href} href={child.href}>
+                    <Link key={child.href} href={child.href} onClick={() => setOpen(false)}>
                       {child.label}
                     </Link>
                   ))}
@@ -91,7 +86,7 @@ export default function SiteHeader() {
               ) : null}
             </div>
           ))}
-          <Link className="pl-btn" href="/contact-us"><Send size={17} /> Get Quote</Link>
+          <Link className="pl-btn" href="/contact-us" onClick={() => setOpen(false)}><Send size={17} /> Get Quote</Link>
         </nav>
       </header>
     </>

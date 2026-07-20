@@ -4,11 +4,6 @@ import {
   BadgeCheck,
   Boxes,
   Building2,
-  ClipboardCheck,
-  Factory,
-  Headset,
-  ShieldCheck,
-  Ship,
   Truck,
 } from "lucide-react";
 import HeroSlider from "@/components/site/HeroSlider";
@@ -16,22 +11,22 @@ import ProductCard from "@/components/site/ProductCard";
 import Reveal from "@/components/site/Reveal";
 import SiteFrame from "@/components/site/SiteFrame";
 import { companyIntro, siteConfig } from "@/lib/site-config";
-import { loadFeaturedSiteProducts } from "@/lib/site-data";
+import { loadFeaturedSiteProducts, loadSitePosts } from "@/lib/site-data";
 
 const categoryCards = [
   {
     icon: Truck,
-    title: "Cranes",
+    title: "Second-hand Cranes",
     text: "Truck cranes, all-terrain cranes, rough-terrain cranes, crawler cranes and used crane options.",
   },
   {
     icon: Building2,
-    title: "Aerial Work Platforms",
+    title: "Second-hand Aerial Work Platforms",
     text: "Scissor lifts, boom lifts, spider lifts, truck-mounted platforms and used aerial lifts.",
   },
   {
     icon: Boxes,
-    title: "Spare Parts",
+    title: "Second-hand Spare Parts",
     text: "Factory-direct spare parts, hydraulic components, maintenance kits and accessories.",
   },
 ];
@@ -45,27 +40,17 @@ const scrollingImages = [
   { src: "/assets/equipment/factory-workshop.png", alt: "Pillarlift workshop" },
 ];
 
-const services = [
-  {
-    icon: ClipboardCheck,
-    title: "Custom Requirements",
-    text: "Working height, lifting capacity, power type, chassis, attachments and destination market are reviewed before quotation.",
-  },
-  {
-    icon: Factory,
-    title: "Manufacturing Strength",
-    text: "Top-ranked manufacturing capability supports customized aerial platforms, cranes and spare parts supply.",
-  },
-  {
-    icon: Ship,
-    title: "Worldwide Shipping",
-    text: "Container, flat rack, RoRo and spare-parts shipment plans are prepared for customers worldwide.",
-  },
-  {
-    icon: Headset,
-    title: "Rental Fleet Support",
-    text: "Thousands of fleet machines and 20+ years of experience help rental companies and dealers scale quickly.",
-  },
+const brands = [
+  ["SDLG", "/assets/brands/sdlg.jpg"],
+  ["Sunward", "/assets/brands/sunward.jpg"],
+  ["CAT", "/assets/brands/cat.jpg"],
+  ["LiuGong", "/assets/brands/liugong.jpg"],
+  ["Dingli", "/assets/brands/dingli.jpg"],
+  ["Genie", "/assets/brands/genie.jpg"],
+  ["XCMG", "/assets/brands/xcmg.jpg"],
+  ["SANY", "/assets/brands/sany.jpg"],
+  ["Sinoboom", "/assets/brands/sinoboom.jpg"],
+  ["Zoomlion", "/assets/brands/zoomlion.jpg"],
 ];
 
 const process = [
@@ -76,26 +61,8 @@ const process = [
   ["05", "Support Fleet", "Supply spare parts, manuals, technical guidance and distributor support."],
 ];
 
-const news = [
-  {
-    date: "2026-06-01",
-    title: "Aerial work platform selection for rental fleets",
-    text: "Compare working height, platform capacity, power type and fleet support requirements.",
-  },
-  {
-    date: "2026-05-18",
-    title: "Crane procurement guide for machinery buyers",
-    text: "Key points for truck cranes, crawler cranes, inspection details and export shipment planning.",
-  },
-  {
-    date: "2026-04-29",
-    title: "Spare parts supply planning for equipment fleets",
-    text: "Parts packages, replenishment planning and combined shipments for rental companies and dealers.",
-  },
-];
-
 export default async function HomePage() {
-  const featuredProducts = await loadFeaturedSiteProducts();
+  const [featuredProducts, latestPosts] = await Promise.all([loadFeaturedSiteProducts(), loadSitePosts(3)]);
 
   return (
     <SiteFrame>
@@ -117,7 +84,7 @@ export default async function HomePage() {
             <div className="pl-section-head">
               <div>
                 <span className="pl-eyebrow">Product range</span>
-                <h2>Aerial work platforms, cranes and spare parts for global buyers.</h2>
+                <h2>Second-hand aerial work platforms, cranes and spare parts for global buyers.</h2>
               </div>
               <p className="pl-muted">{siteConfig.description}</p>
             </div>
@@ -203,32 +170,22 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="pl-section pl-dark">
+      <section className="pl-section pl-brand-section">
         <div className="pl-container">
           <Reveal>
-            <div className="pl-section-head">
-              <div>
-                <span className="pl-eyebrow">Why buyers choose us</span>
-                <h2>Factory-direct lifting solutions with rental fleet experience.</h2>
-              </div>
-              <p className="pl-muted">
-                Pillarlift combines manufacturing capability, rental operation experience and export support for customers worldwide.
-              </p>
+            <div className="pl-brand-heading">
+              <span className="pl-eyebrow">Equipment brands</span>
+              <h2>New &amp; Used Machinery Brands We Supply</h2>
             </div>
           </Reveal>
-          <div className="pl-service-grid">
-            {services.map((item) => {
-              const Icon = item.icon;
-              return (
-                <Reveal key={item.title}>
-                  <article className="pl-service-card">
-                    <Icon size={30} />
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                  </article>
-                </Reveal>
-              );
-            })}
+          <div className="pl-brand-grid">
+            {brands.map(([name, image]) => (
+              <Reveal key={name}>
+                <figure className="pl-brand-card">
+                  <img src={image} alt={`${name} machinery brand`} loading="lazy" />
+                </figure>
+              </Reveal>
+            ))}
           </div>
         </div>
       </section>
@@ -263,12 +220,14 @@ export default async function HomePage() {
             </div>
           </Reveal>
           <div className="pl-news-grid">
-            {news.map((item) => (
+            {latestPosts.map((item) => (
               <Reveal key={item.title}>
                 <article className="pl-news-card">
+                  {item.image ? <img className="pl-news-image" src={item.image} alt="" loading="lazy" /> : null}
                   <time>{item.date}</time>
                   <h3>{item.title}</h3>
-                  <p>{item.text}</p>
+                  <p>{item.excerpt}</p>
+                  <Link className="pl-text-link" href={`/news/${item.slug}`}>Read article <ArrowRight size={16} /></Link>
                 </article>
               </Reveal>
             ))}

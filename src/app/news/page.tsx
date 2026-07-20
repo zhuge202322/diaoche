@@ -28,10 +28,13 @@ export default async function NewsPage() {
             {posts.map((item) => (
               <Reveal key={item.slug}>
                 <article className="pl-news-card">
+                  {item.image ? <img className="pl-news-image" src={item.image} alt="" loading="lazy" /> : null}
                   <time>{item.date}</time>
-                  <h3>{item.title}</h3>
+                  <h3><Link href={`/news/${item.slug}`}>{item.title}</Link></h3>
                   <p>{item.excerpt}</p>
-                  <Link className="pl-text-link" href="/contact-us">Ask about this topic <ArrowRight size={16} /></Link>
+                  <Link className="pl-text-link" href={`/news/${item.slug}`}>
+                    Read article <ArrowRight size={16} />
+                  </Link>
                 </article>
               </Reveal>
             ))}

@@ -7,7 +7,7 @@
     "subCategorySlug": "joystick-controls",
     "subCategoryLabel": "Joystick Controls",
     "badge": "Joystick control",
-    "image": "https://omo-oss-image.thefastimg.com/portal-saas/pg2024072610443973943/cms/image/bbf2a6ed-793b-44c1-88ef-1a175e2dc71c.png",
+    "image": "/assets/spare-parts/taty-operation-joystick.png",
     "short": "TATY Operation Joystick for lifting equipment control replacement, fleet maintenance and spare-parts supply programs.",
     "summary": "Joystick control products are organized for buyers who need replacement control handles, equipment maintenance support and export-ready spare-parts supply. Pillarlift can help match parts by model photos, interface requirements and fleet service needs.",
     "specs": {
@@ -32,10 +32,10 @@
     ],
     "leadTime": "Confirm before quotation",
     "gallery": [
-      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024072610443973943/cms/image/bbf2a6ed-793b-44c1-88ef-1a175e2dc71c.png"
+      "/assets/spare-parts/taty-operation-joystick.png"
     ],
     "sourceUrl": "https://en.cstopauto.com/product_xq/5.html",
-    "sourceMenuUrl": "https://en.cstopauto.com/product/7.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
     "sortOrder": 3000,
     "featured": false
   },
@@ -47,7 +47,7 @@
     "subCategorySlug": "joystick-controls",
     "subCategoryLabel": "Joystick Controls",
     "badge": "Joystick control",
-    "image": "https://omo-oss-image.thefastimg.com/portal-saas/pg2024072610443973943/cms/image/d43828ac-de98-4f95-b3ba-c087c230d1db.png",
+    "image": "/assets/spare-parts/bidirectional-joystick.png",
     "short": "Bidirectional Joystick for lifting equipment control replacement, fleet maintenance and spare-parts supply programs.",
     "summary": "Joystick control products are organized for buyers who need replacement control handles, equipment maintenance support and export-ready spare-parts supply. Pillarlift can help match parts by model photos, interface requirements and fleet service needs.",
     "specs": {
@@ -72,35 +72,35 @@
     ],
     "leadTime": "Confirm before quotation",
     "gallery": [
-      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024072610443973943/cms/image/d43828ac-de98-4f95-b3ba-c087c230d1db.png"
+      "/assets/spare-parts/bidirectional-joystick.png"
     ],
     "sourceUrl": "https://en.cstopauto.com/product_xq/15.html",
-    "sourceMenuUrl": "https://en.cstopauto.com/product/7.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
     "sortOrder": 3001,
     "featured": false
   },
   {
-    "slug": "cstopauto-universal-control-handle",
-    "name": "Universal Control Handle",
+    "slug": "cstopauto-tadc-1204m-dc-motor-controller",
+    "name": "TADC-1204M DC Motor Controller",
     "category": "spare-parts",
-    "categoryLabel": "Joystick Controls",
-    "subCategorySlug": "joystick-controls",
-    "subCategoryLabel": "Joystick Controls",
-    "badge": "Joystick control",
-    "image": "https://omo-oss-image.thefastimg.com/portal-saas/pg2024072610443973943/cms/image/9e27da76-d06e-4b83-828f-c0820a084275.png",
-    "short": "Universal Control Handle for lifting equipment control replacement, fleet maintenance and spare-parts supply programs.",
-    "summary": "Joystick control products are organized for buyers who need replacement control handles, equipment maintenance support and export-ready spare-parts supply. Pillarlift can help match parts by model photos, interface requirements and fleet service needs.",
+    "categoryLabel": "Motor Controllers",
+    "subCategorySlug": "motor-controllers",
+    "subCategoryLabel": "Motor Controllers",
+    "badge": "Motor controller",
+    "image": "/assets/spare-parts/tadc-1204m-dc-motor-controller.png",
+    "short": "TADC-1204M DC motor controller with precise current sensing and reliable power control for aerial work platforms.",
+    "summary": "The TADC-1204M uses high-precision Hall sensing, current acquisition and calibration algorithms for accurate equipment control. Parallel MOS transistor technology improves current balance, thermal performance and service life.",
     "specs": {
       "Main category": "Spare Parts",
-      "Product group": "Joystick Controls",
-      "Compatibility": "Aerial work platforms, cranes and lifting equipment controls",
-      "Interface support": "Custom interface matching can be checked before quotation",
+      "Product group": "Motor Controllers",
+      "Controller type": "DC motor controller",
+      "Compatibility": "Aerial work platforms and mobile lifting equipment",
       "Use case": "Replacement, maintenance and distributor stock",
       "Inquiry support": "Model matching, photos, packing and worldwide shipping"
     },
     "features": [
-      "Control handle option for lifting equipment maintenance and repair",
-      "Interface and wiring details can be checked before quotation",
+      "High-precision Hall effect current sensing and calibration",
+      "Parallel MOS transistor technology supports balanced current output",
       "Suitable for rental fleets, service teams, dealers and parts distributors",
       "Export packing and combined spare-parts shipment support available"
     ],
@@ -112,11 +112,176 @@
     ],
     "leadTime": "Confirm before quotation",
     "gallery": [
-      "https://omo-oss-image.thefastimg.com/portal-saas/pg2024072610443973943/cms/image/9e27da76-d06e-4b83-828f-c0820a084275.png"
+      "/assets/spare-parts/tadc-1204m-dc-motor-controller.png"
     ],
-    "sourceUrl": "https://en.cstopauto.com/product_xq/16.html",
-    "sourceMenuUrl": "https://en.cstopauto.com/product/7.html",
+    "sourceUrl": "https://en.cstopauto.com/product_xq/27.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
     "sortOrder": 3002,
+    "featured": false
+  },
+  {
+    "slug": "cstopauto-tadc-1216m-motor-controller",
+    "name": "TADC-1216M Motor Controller",
+    "category": "spare-parts",
+    "categoryLabel": "Motor Controllers",
+    "subCategorySlug": "motor-controllers",
+    "subCategoryLabel": "Motor Controllers",
+    "badge": "Motor controller",
+    "image": "/assets/spare-parts/tadc-1216m-motor-controller.png",
+    "short": "TADC-1216M motor controller for precise, stable drive control in aerial work platform service applications.",
+    "summary": "The TADC-1216M combines high-precision current sensing with calibrated control algorithms and low-resistance MOSFET technology for efficient, dependable equipment operation.",
+    "specs": {
+      "Main category": "Spare Parts",
+      "Product group": "Motor Controllers",
+      "Controller type": "DC motor controller",
+      "Compatibility": "Aerial work platforms and mobile lifting equipment",
+      "Use case": "Replacement, maintenance and distributor stock",
+      "Inquiry support": "Model matching, photos, packing and worldwide shipping"
+    },
+    "features": [
+      "High-precision current acquisition and calibration",
+      "Low-resistance MOSFET technology supports efficient output",
+      "Suitable for rental fleets, service teams, dealers and parts distributors",
+      "Export packing and combined spare-parts shipment support available"
+    ],
+    "applications": ["Fleet maintenance", "Replacement parts", "Dealer stock", "Service teams"],
+    "leadTime": "Confirm before quotation",
+    "gallery": ["/assets/spare-parts/tadc-1216m-motor-controller.png"],
+    "sourceUrl": "https://en.cstopauto.com/product_xq/13.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
+    "sortOrder": 3003,
+    "featured": false
+  },
+  {
+    "slug": "cstopauto-tadc-1a1d-three-in-one-motor-controller",
+    "name": "TADC-1A1D Three-in-one Motor Controller",
+    "category": "spare-parts",
+    "categoryLabel": "Motor Controllers",
+    "subCategorySlug": "motor-controllers",
+    "subCategoryLabel": "Motor Controllers",
+    "badge": "Motor controller",
+    "image": "/assets/spare-parts/tadc-1a1d-motor-controller.png",
+    "short": "Integrated TADC-1A1D three-in-one motor controller for compact aerial work platform control systems.",
+    "summary": "The TADC-1A1D integrates multiple drive-control functions in one controller, using accurate sensing and balanced power output to support compact, maintainable lifting equipment systems.",
+    "specs": {
+      "Main category": "Spare Parts",
+      "Product group": "Motor Controllers",
+      "Controller type": "Three-in-one integrated controller",
+      "Compatibility": "Aerial work platforms and mobile lifting equipment",
+      "Use case": "Replacement, maintenance and distributor stock",
+      "Inquiry support": "Model matching, photos, packing and worldwide shipping"
+    },
+    "features": [
+      "Integrated three-in-one controller architecture",
+      "Accurate sensing and balanced power output",
+      "Suitable for rental fleets, service teams, dealers and parts distributors",
+      "Export packing and combined spare-parts shipment support available"
+    ],
+    "applications": ["Fleet maintenance", "Replacement parts", "Dealer stock", "Service teams"],
+    "leadTime": "Confirm before quotation",
+    "gallery": ["/assets/spare-parts/tadc-1a1d-motor-controller.png"],
+    "sourceUrl": "https://en.cstopauto.com/product_xq/28.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
+    "sortOrder": 3004,
+    "featured": false
+  },
+  {
+    "slug": "cstopauto-taac-1a-ac-motor-controller",
+    "name": "TAAC-1A AC Motor Controller",
+    "category": "spare-parts",
+    "categoryLabel": "Motor Controllers",
+    "subCategorySlug": "motor-controllers",
+    "subCategoryLabel": "Motor Controllers",
+    "badge": "Motor controller",
+    "image": "/assets/spare-parts/taac-1a-ac-motor-controller.png",
+    "short": "TAAC-1A AC motor controller with FOC vector control and complete alarm protection for lifting equipment drives.",
+    "summary": "The TAAC-1A uses FOC vector and current-torque control for responsive motor operation. Parameter self-learning supports convenient motor matching, with undervoltage, overvoltage and thermal protection functions.",
+    "specs": {
+      "Main category": "Spare Parts",
+      "Product group": "Motor Controllers",
+      "Controller type": "AC motor controller",
+      "Compatibility": "Aerial work platforms and mobile lifting equipment",
+      "Use case": "Replacement, maintenance and distributor stock",
+      "Inquiry support": "Model matching, photos, packing and worldwide shipping"
+    },
+    "features": [
+      "FOC vector and current-torque control",
+      "Parameter self-learning and complete alarm protection",
+      "Suitable for rental fleets, service teams, dealers and parts distributors",
+      "Export packing and combined spare-parts shipment support available"
+    ],
+    "applications": ["Fleet maintenance", "Replacement parts", "Dealer stock", "Service teams"],
+    "leadTime": "Confirm before quotation",
+    "gallery": ["/assets/spare-parts/taac-1a-ac-motor-controller.png"],
+    "sourceUrl": "https://en.cstopauto.com/product_xq/11.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
+    "sortOrder": 3005,
+    "featured": false
+  },
+  {
+    "slug": "cstopauto-tamc-1d-drive-control-integrated-machine",
+    "name": "TAMC-1D Drive Control Integrated Machine",
+    "category": "spare-parts",
+    "categoryLabel": "Motor Controllers",
+    "subCategorySlug": "motor-controllers",
+    "subCategoryLabel": "Motor Controllers",
+    "badge": "Drive controller",
+    "image": "/assets/spare-parts/tamc-1d-drive-control.png",
+    "short": "TAMC-1D integrated drive controller with current, temperature, short-circuit and voltage protection.",
+    "summary": "The TAMC-1D integrated drive-control unit provides stable output with overcurrent, temperature, short-circuit, battery undervoltage and overvoltage protection for demanding fleet maintenance requirements.",
+    "specs": {
+      "Main category": "Spare Parts",
+      "Product group": "Motor Controllers",
+      "Controller type": "Integrated drive-control unit",
+      "Compatibility": "Aerial work platforms and mobile lifting equipment",
+      "Use case": "Replacement, maintenance and distributor stock",
+      "Inquiry support": "Model matching, photos, packing and worldwide shipping"
+    },
+    "features": [
+      "Integrated drive and control functions",
+      "Overcurrent, thermal, short-circuit and voltage protection",
+      "Suitable for rental fleets, service teams, dealers and parts distributors",
+      "Export packing and combined spare-parts shipment support available"
+    ],
+    "applications": ["Fleet maintenance", "Replacement parts", "Dealer stock", "Service teams"],
+    "leadTime": "Confirm before quotation",
+    "gallery": ["/assets/spare-parts/tamc-1d-drive-control.png"],
+    "sourceUrl": "https://en.cstopauto.com/product_xq/12.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
+    "sortOrder": 3006,
+    "featured": false
+  },
+  {
+    "slug": "cstopauto-tapcu-4a-platform-control-unit",
+    "name": "TAPCU-4A Platform Control Unit",
+    "category": "spare-parts",
+    "categoryLabel": "Platform Control Units",
+    "subCategorySlug": "platform-control-units",
+    "subCategoryLabel": "Platform Control Units",
+    "badge": "Platform control unit",
+    "image": "/assets/spare-parts/tapcu-4a-platform-control-unit.png",
+    "short": "TAPCU-4A platform control unit with plug-and-play interfaces for mainstream scissor lift electrical systems.",
+    "summary": "The TAPCU-4A is designed for broad compatibility with mainstream aerial work platform interfaces. Plug-and-play connections and protected power and communication ports support dependable fleet maintenance.",
+    "specs": {
+      "Main category": "Spare Parts",
+      "Product group": "Platform Control Units",
+      "Controller type": "Platform control unit",
+      "Compatibility": "Scissor lifts and aerial work platforms",
+      "Use case": "Replacement, maintenance and distributor stock",
+      "Inquiry support": "Model matching, photos, packing and worldwide shipping"
+    },
+    "features": [
+      "Plug-and-play compatibility with mainstream electrical interfaces",
+      "Protected power and communication ports",
+      "Suitable for rental fleets, service teams, dealers and parts distributors",
+      "Export packing and combined spare-parts shipment support available"
+    ],
+    "applications": ["Fleet maintenance", "Replacement parts", "Dealer stock", "Service teams"],
+    "leadTime": "Confirm before quotation",
+    "gallery": ["/assets/spare-parts/tapcu-4a-platform-control-unit.png"],
+    "sourceUrl": "https://en.cstopauto.com/product_xq/9.html",
+    "sourceMenuUrl": "https://en.cstopauto.com/product/1303004630875656192.html",
+    "sortOrder": 3007,
     "featured": false
   }
 ]

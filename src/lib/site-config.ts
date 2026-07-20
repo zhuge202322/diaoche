@@ -7,12 +7,12 @@ export const siteConfig = {
   description:
     "Shenzhen Pillarlift Heavy Machinery Co., Ltd. manufactures, rents and exports aerial work platforms, cranes and spare parts worldwide with factory-direct pricing and fast delivery.",
   business: "Aerial work platforms, cranes and spare parts",
-  whatsapp: "86-13647375320",
-  whatsappHref: "https://wa.me/8613647375320",
+  whatsapp: "+86 152 1774 6038",
+  whatsappHref: "https://wa.me/8615217746038",
   contactName: "Pillarlift Sales Team",
   email: "ftth@ftthoptic.com",
   emailHref: "mailto:ftth@ftthoptic.com",
-  phone: "+86 136 4737 5320",
+  phone: "+86 152 1774 6038",
   location: "9th Floor, Hengboli Rongfeng Building, Longgang District, Shenzhen, Guangdong, China",
 };
 

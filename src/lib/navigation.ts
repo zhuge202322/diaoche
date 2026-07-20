@@ -31,9 +31,8 @@ export const primaryNavigation = [
   { label: "Aerial Work Platforms", href: "/aerial-work-platforms", children: aerialWorkPlatformItems },
   { label: "Cranes", href: "/cranes", children: craneItems },
   { label: "Spare Parts", href: "/spare-parts" },
-  { label: "Available Stock", href: "/available-stock" },
+  { label: "News", href: "/news" },
   { label: "Solutions", href: "/solutions", children: solutionItems },
   { label: "About Us", href: "/about" },
-  { label: "News", href: "/news" },
   { label: "Contact Us", href: "/contact-us" },
 ];

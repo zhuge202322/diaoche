@@ -21,11 +21,11 @@ const slides = [
     note: "Top 30 worldwide",
   },
   {
-    title: "Customized Equipment and Factory-direct Pricing",
-    text: "Choose scissor lifts, boom lifts, spider lifts, truck-mounted aerial platforms, cranes and spare parts with fast delivery.",
+    title: "Used Aerial Work Platforms & Cranes from China",
+    text: "Direct sales from one of China's largest used aerial work platform and crane bases, offering inspected scissor lifts, boom lifts, truck-mounted platforms, cranes and spare parts.",
     image: "/assets/equipment/articulating-boom-lift.png",
-    label: "Customization",
-    note: "Fast delivery",
+    label: "Used Equipment",
+    note: "Inspected stock",
   },
 ];
 

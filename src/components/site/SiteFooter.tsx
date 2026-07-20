@@ -8,11 +8,7 @@ export default function SiteFooter() {
       <div className="pl-container pl-footer-grid">
         <div>
           <Link className="pl-brand" href="/">
-            <span className="pl-brand-mark" aria-hidden="true" />
-            <span>
-              <strong>{siteConfig.brand}</strong>
-              <small>Heavy Machinery</small>
-            </span>
+            <img className="pl-brand-logo pl-footer-logo" src="/assets/brand/pillarlift-logo.png" alt="Pillarlift" />
           </Link>
           <p>{siteConfig.description}</p>
         </div>

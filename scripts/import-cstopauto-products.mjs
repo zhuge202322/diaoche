@@ -23,6 +23,18 @@ const categoryDefinitions = [
     sortOrder: 31,
     imageUrl: products.find((item) => item.subCategorySlug === "joystick-controls")?.image || "",
   },
+  {
+    name: "Motor Controllers",
+    slug: "motor-controllers",
+    sortOrder: 32,
+    imageUrl: products.find((item) => item.subCategorySlug === "motor-controllers")?.image || "",
+  },
+  {
+    name: "Platform Control Units",
+    slug: "platform-control-units",
+    sortOrder: 33,
+    imageUrl: products.find((item) => item.subCategorySlug === "platform-control-units")?.image || "",
+  },
 ];
 
 function specsToText(specs = {}) {
@@ -32,7 +44,13 @@ function specsToText(specs = {}) {
 }
 
 async function main() {
-  const importSlugs = products.map((product) => product.slug);
+  const existingImportedProducts = await prisma.product.findMany({
+    where: { slug: { startsWith: "cstopauto-" } },
+    select: { slug: true },
+  });
+  const importSlugs = [
+    ...new Set([...products.map((product) => product.slug), ...existingImportedProducts.map((product) => product.slug)]),
+  ];
 
   await prisma.productSkuImage.deleteMany({
     where: { sku: { product: { slug: { in: importSlugs } } } },
