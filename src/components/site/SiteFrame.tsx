@@ -1,5 +1,6 @@
 import SiteFooter from "./SiteFooter";
 import SiteHeader from "./SiteHeader";
+import WhatsAppButton from "./WhatsAppButton";
 
 export default function SiteFrame({ children }: { children: React.ReactNode }) {
   return (
@@ -7,6 +8,7 @@ export default function SiteFrame({ children }: { children: React.ReactNode }) {
       <SiteHeader />
       <main>{children}</main>
       <SiteFooter />
+      <WhatsAppButton />
     </div>
   );
 }
